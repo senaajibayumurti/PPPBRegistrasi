@@ -1,8 +1,13 @@
 package com.example.pppbregistrasi
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.text.style.UnderlineSpan
 import android.widget.Toast
 import com.example.pppbregistrasi.databinding.ActivityMainBinding
 
@@ -17,6 +22,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val fullText = "Already have an account? Log in."
+        val spannableString = SpannableString(fullText)
+        val colorSpan = ForegroundColorSpan(Color.CYAN)
+        val underlineSpan = UnderlineSpan()
+        val startIndex = fullText.indexOf("Log in")
+        val endIndex = startIndex + "Log in".length
+        spannableString.setSpan(colorSpan, startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(underlineSpan, startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        binding.haveAnAccount.text = spannableString
 
         with(binding){
             buttonRegister.setOnClickListener {
