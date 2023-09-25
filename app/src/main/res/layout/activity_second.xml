@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
         android:text="Homepage"
-        android:textColor="@color/black_cerah"
+        android:textColor="@color/cyan"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

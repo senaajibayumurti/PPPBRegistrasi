@@ -19,18 +19,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         with(binding){
-
             buttonRegister.setOnClickListener {
-                val allFilled =
-                            usernameTxt.text.isNotEmpty()   &&
-                            emailTxt.text.isNotEmpty()      &&
-                            phoneTxt.text.isNotEmpty()      &&
-                            passwordTxt.text.isNotEmpty()
-                if (allFilled){
+                if (usernameTxt.text.isEmpty()   ||
+                    emailTxt.text.isEmpty()      ||
+                    phoneTxt.text.isEmpty()      ||
+                    passwordTxt.text.isEmpty()
+                    ){
+                    val warningCredentials = "Please fill out the credentials."
+                    Toast.makeText(this@MainActivity, warningCredentials, Toast.LENGTH_SHORT).show()
+                }
+                else{
                     if (tncCheckbox.isChecked){
-                        buttonRegister.isEnabled = true
-                        buttonRegister.alpha = 1.0f
-
                         val username = usernameTxt.text.toString()
 
                         val intentToSecondActivity =
@@ -39,17 +38,9 @@ class MainActivity : AppCompatActivity() {
                         startActivity(intentToSecondActivity)
                     }
                     else{
-                        buttonRegister.isEnabled = false
-                        buttonRegister.alpha = 0.5f
                         val warningTNC = "Please accept the Terms and Conditions."
                         Toast.makeText(this@MainActivity, warningTNC, Toast.LENGTH_SHORT).show()
                     }
-                }
-                else{
-                    buttonRegister.isEnabled = false
-                    buttonRegister.alpha = 0.5f
-                    val warningCredentials = "Please fill out the credentials."
-                    Toast.makeText(this@MainActivity, warningCredentials, Toast.LENGTH_SHORT).show()
                 }
             }
         }
