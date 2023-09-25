@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="32dp"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
     <TextView
@@ -13,19 +14,63 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
         android:text="Register"
+        android:textColor="@color/black_cerah"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <include
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/credential_list"
-        layout="@layout/credential_list"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/register_title" />
+        app:layout_constraintTop_toBottomOf="@id/register_title">
+        <EditText
+            android:id="@+id/username_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/style_edit_text"
+            android:background="@drawable/drawable_button"
+            android:backgroundTint="@color/black_gelap"
+            android:hint="Username"
+            android:layout_marginBottom="24dp"
+            />
+        <EditText
+            android:id="@+id/email_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/style_edit_text"
+            android:background="@drawable/drawable_button"
+            android:backgroundTint="@color/black_gelap"
+            android:hint="E-Mail"
+            android:layout_marginBottom="24dp"
+            />
+        <EditText
+            android:id="@+id/phone_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/style_edit_text"
+            android:background="@drawable/drawable_button"
+            android:backgroundTint="@color/black_gelap"
+            android:hint="Phone Number"
+            android:layout_marginBottom="24dp"
+            />
+        <EditText
+            android:id="@+id/password_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/style_edit_text"
+            android:background="@drawable/drawable_button"
+            android:backgroundTint="@color/black_gelap"
+            android:hint="Password"
+            android:layout_marginBottom="24dp"
+            />
+
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/tnc"
         android:layout_width="match_parent"
@@ -44,17 +89,22 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:text="By checking the box you agree to our Terms and Conditions."
+            android:textColor="@color/white"
             android:textSize="11sp"/>
     </LinearLayout>
 
     <Button
         android:id="@+id/button_register"
+        style="@style/style_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/drawable_button"
+        android:layout_marginBottom="48dp"
+        android:backgroundTint="@color/cyan"
         android:text="Register"
-        app:layout_constraintTop_toBottomOf="@id/tnc"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:enabled="false"
+        android:alpha="0.5"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
